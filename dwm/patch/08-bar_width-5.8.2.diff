@@ -1,0 +1,42 @@
+diff -rup dwm-5.8.2/config.def.h dwm-5.8.2-barw/config.def.h
+--- dwm-5.8.2/config.def.h	2011-03-10 11:08:49.186666666 +0000
++++ dwm-5.8.2-barw/config.def.h	2011-03-10 11:15:26.953333335 +0000
+@@ -15,6 +15,7 @@ static const unsigned int borderpx  = 1;
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */
+ static const Bool topbar            = True;     /* False means bottom bar */
++static const unsigned int barw      = 1170;     /* bar width */ 
+ 
+ static const Rule rules[] = {
+ 	/* class      instance    title       tags mask     isfloating   monitor */
+diff -rup dwm-5.8.2/dwm.c dwm-5.8.2-barw/dwm.c
+--- dwm-5.8.2/dwm.c	2011-03-10 11:08:59.633333570 +0000
++++ dwm-5.8.2-barw/dwm.c	2011-03-10 11:15:39.739999631 +0000
+@@ -746,17 +746,7 @@ drawbar(Monitor *m) {
+ 	drawtext(m->ltsymbol, dc.colors[0], True);
+ 	dc.x += dc.w;
+ 	x = dc.x;
+-	if(m == selmon) { /* status is only drawn on selected monitor */
+-		dc.w = TEXTW(stext);
+-		dc.x = m->ww - dc.w;
+-		if(dc.x < x) {
+-			dc.x = x;
+-			dc.w = m->ww - x;
+-		}
+-		drawcoloredtext(stext);
+-	}
+-	else
+-		dc.x = m->ww;
++	dc.x = barw;
+ 	if((dc.w = dc.x - x) > bh) {
+ 		dc.x = x;
+ 		if(m->sel) {
+@@ -767,7 +757,7 @@ drawbar(Monitor *m) {
+ 		else
+ 			drawtext(NULL, dc.colors[0], False);
+ 	}
+-	XCopyArea(dpy, dc.drawable, m->barwin, dc.gc, 0, 0, m->ww, bh, 0, 0);
++	XCopyArea(dpy, dc.drawable, m->barwin, dc.gc, 0, 0, barw, bh, 0, 0);
+ 	XSync(dpy, False);
+ }
+ 

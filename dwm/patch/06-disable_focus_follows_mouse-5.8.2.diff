@@ -1,0 +1,10 @@
+--- a/dwm.c	2011-03-07 02:54:36.836574021 +0000
++++ b/dwm.c	2011-03-07 02:55:30.542330699 +0000
+@@ -283,7 +283,6 @@ static void (*handler[LASTEvent]) (XEven
+ 	[ConfigureRequest] = configurerequest,
+ 	[ConfigureNotify] = configurenotify,
+ 	[DestroyNotify] = destroynotify,
+-	[EnterNotify] = enternotify,
+ 	[Expose] = expose,
+ 	[FocusIn] = focusin,
+ 	[KeyPress] = keypress,

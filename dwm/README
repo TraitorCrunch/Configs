@@ -1,0 +1,45 @@
+Patches work if applied on a vanilla 5.8.2 in ascending order.
+
+pertag2.diff, nbstack.c:
+  (from https://github.com/simongmzlj/dwmhacks)
+  - Changes the tile arranger to a modified non-greedy ntile, adds pertag mfact,
+    nmaster, and layouts, and the ability to configure individual pertag
+    defaults. nbstack.c is a bstack variant of ntile.
+
+statuscolors.diff:
+  (from http://dwm.suckless.org/patches/statuscolors)
+  - I only changed the current window's title background to normal.
+
+gaps.diff:
+  (from https://github.com/simongmzlj/dwmhacks)
+  - Adds gaps around the edges of windows correctly. Doesn't break on floating
+    windows, doesn't add a double with gap in between windows. Can be enabled
+    per layout.
+
+pango.diff:
+  (from http://aur.archlinux.org/packages.php?ID=33193)
+
+opacity.diff, opacity.c:
+  (from https://github.com/simongmzlj/dwmhacks)
+  - Makes unfocused windows shade. Allows for setting individual window
+    transparency.
+  - Doesn't work here at the moment... rxvt-unicode works fine, but Firefox and
+    other applications are invisible.
+
+disable_focus_follows_mouse.diff:
+  - Self explainable.
+
+scratchpad_stay.diff:
+  (from https://github.com/lolilolicon/dwm)
+
+push.c
+  (from http://dwm.suckless.org/patches/push)
+
+gaplessgrid.c
+  (from http://dwm.suckless.org/patches/gapless_grid)
+
+pidgin_ggrid.c
+  - Based of https://github.com/simongmzlj/dwmhacks/blob/master/pidgin.c and
+    gaplessgrid.c
+  - Your Pidgin's buddy list occupies the leftmost mfact% of the screen, and 
+    all chat windows use the remaining space in a gaplessgrid fashion.
